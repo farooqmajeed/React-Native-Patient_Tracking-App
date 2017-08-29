@@ -22,6 +22,9 @@ class Dashboard extends Component {
                 <Button block success style={{ margin: 5 }} onPress={() => Actions.addPatient()} >
                     <Text>Add</Text>
                 </Button>
+                <Button block success style={{ margin: 5 }} onPress={() => Actions.searchPatient()} >
+                    <Text>Add</Text>
+                </Button>
                 {/* <Button block success style={{ margin: 5 }} onPress={() => Actions.checkout()} >
                     <Text>check out</Text>
                 </Button> */}
@@ -73,10 +76,13 @@ class Dashboard extends Component {
                                 <Button block success style={styles.buttonStyle} onPress={() => Actions.patientList()} >
                                     <Text> Add Patient </Text>
                                 </Button>
+                                <Button block success style={styles.buttonStyle} onPress={() => Actions.searchPatient()} >
+                                    <Text> Search Patient </Text>
+                                </Button>
 
 
                             </CardItem>
-patientList
+                            {/* patientList */}
 
 
                             {/*     <CardItem style={{ backgroundColor: '#4BB543', margin: 'auto', height: 150, width: 120, marginLeft: 140, marginTop: -150, marginRight: 5 }}>
