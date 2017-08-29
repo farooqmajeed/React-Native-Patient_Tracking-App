@@ -9,6 +9,7 @@ import AddPatient from './components/patients/AddPatients';
 import PatientForm from './components/patients/PatientForm';
 import UpdatePatient from './components/patients/UpdatePatients';
 import PatientList from './components/patients/PatientList';
+import SearchPatients from './components/patients/SearchPatients';
 
 
 const RouterComponent = () => {
@@ -26,7 +27,7 @@ const RouterComponent = () => {
                 <Scene key="dashboard" component={Dashboard} hideNavBar={true} />
                 <Scene
                     navigationBarStyle={{ backgroundColor: '#4BB543' }}
-                    onRight={() => Actions.addPatient()}
+                    onRight={() => Actions.dashboard()}
                     rightTitle="Add"
                     key="patientList"
                     component={PatientList}
@@ -35,6 +36,7 @@ const RouterComponent = () => {
                 />
                 <Scene key="addPatient" component={AddPatient} hideNavBar={true} />
                 <Scene key="updatePatient" component={UpdatePatient} hideNavBar={true} />
+                <Scene key="searchPatient" component={SearchPatients} hideNavBar={true} />
 
             </Scene>
 
