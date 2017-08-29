@@ -5,7 +5,8 @@ import {
     PATIENT_CREATE,
     PATIENT_UPDATE,
     PATIENT_FETCH_SUCCESS,
-    PATIENT_SAVE_SUCCESS
+    PATIENT_SAVE_SUCCESS,
+    PATIENT_SEARCH_SUCCESS
 } from './types';
 import { AsyncStorage } from 'react-native';
 
@@ -61,3 +62,16 @@ export const patientDelete = ({ uid }) => {
             })
     }
 }
+export const onPatientSearch = (data) => {
+    const { currentUser } = firebase.auth()
+
+    return (dispatch) => {
+        firebase.database().ref(`/users/${currentUser.uid}/patients`)
+            .orderByChild("name").startAt(data)
+            .on('value', snapshot => {
+                dispatch({ type: PATIENT_SEARCH_SUCCESS, payload: snapshot.val() });
+            })
+    }
+}
+
+
