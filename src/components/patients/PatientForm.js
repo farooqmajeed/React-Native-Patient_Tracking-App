@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Text, DrawerLayoutAndroid, View, TouchableHighlight, Image, ScrollView, StyleSheet, } from 'react-native';
+import { Text, DrawerLayoutAndroid, View, TouchableHighlight, Image, ScrollView, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { Card, CardSection } from '../common'
+import { Card, CardSection } from '../common';
 import { Container, Content, Header, Left, Body, Right, Button, Icon, Title, CardItem, Item, Input, H2, Picker } from 'native-base';
-// import { patientUpdate } from '../actions';
+import DatePicker from 'react-native-datepicker';
 import { patientUpdate, patientCreate } from '../../store/actions/patientActions';
 
 import { connect } from 'react-redux';
@@ -109,7 +109,31 @@ class PatientForm extends Component {
                                 <Picker.Item label="  Saturday" value="Saturday" />
                                 <Picker.Item label="  Sunday" value="Sunday" />
                             </Picker>
+                            <DatePicker
+                                style={{ width: 200 }}
+                                date={this.props.dateSelected}
+                                mode="date"
+                                placeholder="select date"
+                                format="YYYY-MM-DD"
+                                minDate={new Date()}
+                                maxDate="2017-12-31"
+                                confirmBtnText="Confirm"
+                                cancelBtnText="Cancel"
+                                customStyles={{
+                                    dateIcon: {
+                                        position: 'absolute',
+                                        left: 0,
+                                        top: 4,
+                                        marginLeft: 0
+                                    },
+                                    dateInput: {
+                                        marginLeft: 36
+                                    }
+                                }}
+                                onDateChange={(value) => this.props.date(value)}
+                            />
                         </CardSection>
+
                     </Card>
                 </DrawerLayoutAndroid>
             </Container>

@@ -4,7 +4,7 @@ import { View, Text, ListView } from 'react-native';
 import { connect } from 'react-redux';
 import { patientFetch } from '../../store/actions/patientActions';
 import { Card, CardSection } from '../common';
-import ListItem from './ListItems';
+import ListPatients from './ListPatients';
 
 
 class PatientList extends Component {
@@ -26,7 +26,7 @@ class PatientList extends Component {
 
     }
     renderRow(patients) {
-        return <ListItem patients={patients} />;
+        return <ListPatients patients={patients} />;
         console.log("Patients", patients)
     }
 
